@@ -70,8 +70,8 @@
 <p>Fingers crossed that the Haskell community can unify on one approach, at least enough to get built into GHC as a language extension or, ideally, to make its way into the Haskell Report.</p>
 <p>I won’t hold my breath.</p>
 <h2 id="compilation">Compilation</h2>
-<p>GHC uses a frankly astonishing amount of time and memory to do its job. It’s a known problem that some programs and libraries <a href="https://web.archive.orghttps://gitlab.haskell.org/ghc/ghc/issues/11415">literally cannot be compiled</a> on even competent hardware due to a lack of resources. In addition, long compile times are off-putting to people trying out Haskell for the first time.</p>
-<p>Part of this is down to another known issue with Haskell libraries which is that some of them pull in the known universe as dependencies. <a href="https://web.archive.orghttp://hackage.haskell.org/package/pandoc"><code>pandoc</code></a> is a good example of this. The upshot is using <a href="https://github.com/dixonary/microcosmos/blob/e482c80ec85dfa29c52125061c8c25633794d8f7/src/Main.hs#L303">nasty workarounds</a> or to simply give up and buy a more powerful machine.</p>
+<p>GHC uses a frankly astonishing amount of time and memory to do its job. It’s a known problem that some programs and libraries <a href="https://gitlab.haskell.org/ghc/ghc/issues/11415">literally cannot be compiled</a> on even competent hardware due to a lack of resources. In addition, long compile times are off-putting to people trying out Haskell for the first time.</p>
+<p>Part of this is down to another known issue with Haskell libraries which is that some of them pull in the known universe as dependencies. <a href="http://hackage.haskell.org/package/pandoc"><code>pandoc</code></a> is a good example of this. The upshot is using <a href="https://github.com/dixonary/microcosmos/blob/e482c80ec85dfa29c52125061c8c25633794d8f7/src/Main.hs#L303">nasty workarounds</a> or to simply give up and buy a more powerful machine.</p>
 <p>But even so, it’s unclear to me why compiling a program which has a hundred or so files uses <em>plural gigabytes</em> of memory to compile. I’m not sure there’s anything we can do about this, because GHC is such a monolith, other than slowly improve its codebase over time.</p>
 <p>To library and application developers, <em>please</em> stop depending on enormous libraries like <code>lens</code> and <code>Cabal</code> wherever possible. I do not think that a dependency on <code>Cabal</code> is required by almost any program, and <code>lens</code> can almost always be replaced with <a href="https://hackage.haskell.org/package/microlens"><code>microlens</code></a>, a minimal reimplementation designed with library devs in mind.</p>
 <p>No advice for new learners, I’m afraid. Maybe take up swordfighting.</p>
@@ -102,7 +102,7 @@
 <tr class="even">
 <td style="text-align: left;">Cabal is impenetrable</td>
 <td style="text-align: left;">Produce a <em>practical</em> guide to using <code>cabal</code>, and fix the default commands.</td>
-<td style="text-align: left;">Use <code>stack</code> and follow the <a href="https://web.archive.orghttps://docs.haskellstack.org/en/stable/GUIDE/#hello-world-example">guide</a>.</td>
+<td style="text-align: left;">Use <code>stack</code> and follow the <a href="https://docs.haskellstack.org/en/stable/GUIDE/#hello-world-example">guide</a>.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Advanced topics are hard to teach</td>
@@ -132,9 +132,9 @@
 <ol>
 <li id="fn1"><p>Trust me, I have tried them all. I have been trying for years. Apparently <code>haskell-mode</code> for emacs may come close; I did not have success with it.<a href="#fnref1" class="footnote-back">↩</a></p></li>
 <li id="fn2"><p>Copied and pasted chapters 1-4 into wordcounter.net.<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>It turns out that this problem is <a href="https://web.archive.orghttps://github.com/haskell/cabal/issues/6866">known</a> and will hopefully be resolved soon. Thanks to <code>george_____t</code> on Reddit for the pointer.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>It turns out that this problem is <a href="https://github.com/haskell/cabal/issues/6866">known</a> and will hopefully be resolved soon. Thanks to <code>george_____t</code> on Reddit for the pointer.<a href="#fnref3" class="footnote-back">↩</a></p></li>
 <li id="fn4"><p>This is without even mentioning the classic examples of “A monad is a monoid over the category of endofunctors” or “A monad is a lax functor over a terminal bicategory”, which both serve as unfair but amusing characterisations of certain members of the Haskell community.<a href="#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p>One example is the fantastic <a href="https://web.archive.orghttps://hackage.haskell.org/package/sbv"><code>SBV</code></a> library. It has a type <code>Symbolic</code> on which a lot of functionality is based. I have been using this library for a long time, but if you asked me what the <code>Monad</code> instance for <code>Symbolic</code> did, I would not be able to tell you. In the docs, <code>Symbolic</code> is described as “a specialisation of <code>SymbolicT</code> to the <code>IO</code> monad”; <code>SymbolicT</code> is defined as “a generalisation of <code>Symbolic</code>”. I hope the problem is clear.<a href="#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>One example is the fantastic <a href="https://hackage.haskell.org/package/sbv"><code>SBV</code></a> library. It has a type <code>Symbolic</code> on which a lot of functionality is based. I have been using this library for a long time, but if you asked me what the <code>Monad</code> instance for <code>Symbolic</code> did, I would not be able to tell you. In the docs, <code>Symbolic</code> is described as “a specialisation of <code>SymbolicT</code> to the <code>IO</code> monad”; <code>SymbolicT</code> is defined as “a generalisation of <code>Symbolic</code>”. I hope the problem is clear.<a href="#fnref5" class="footnote-back">↩</a></p></li>
 </ol>
 </section>
 
